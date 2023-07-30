@@ -22,7 +22,7 @@ export class AuthService {
     ) {}
 
     // ユーザーを認証する
-    async validateUser(name: Users['name'], pass: Users['password']): Promise<passwordOmitUser | null> {
+    async validateUser(name: Users['name'], pass: Users['password']): Promise<Users | null> {
         // DBからユーザーを取得する
         const user = await this.usersService.findOne(name);
 

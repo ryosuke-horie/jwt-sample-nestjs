@@ -3,7 +3,6 @@ import { ExtractJwt, Strategy as BaseJwtStrategy } from 'passport-jwt';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
-import { JwtPauleoad } from './auth.interface';
 import { Users } from 'src/users/users.entity';
 
 // JwtについているPayload情報の型

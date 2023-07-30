@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -18,7 +19,11 @@ import { UsersModule } from './users/users.module';
       password: 'password',   // DBパスワード
       synchronize: true,      // モデル同期(trueで同期)
       entities: [__dirname + '/**/*.entity.{js,ts}'],  // ロードするエンティティ
-    })
+    }),
+    ConfigModule.forRoot({ // envファイルを組み込むために使用
+      isGlobal: true,
+    }),
+    AuthModule, // 必須！これが無いと認証処理が動かない
   ],
   controllers: [AppController],
   providers: [AppService],

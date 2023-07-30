@@ -17,7 +17,7 @@ export class LocalStrategy extends PassportStrategy(BaseLocalStrategy) {
     }
 
     // passport-localは、デフォルトで username と password をパラメーターで受け取る
-    async validate(name: Uses['name'], pass: Users['password']): Promise<passwordOmitUser> {
+    async validate(name: Users['name'], pass: Users['password']): Promise<passwordOmitUser> {
         // 認証して結果を受け取る
         const user = await this.authService.validateUser(name, pass);
 
